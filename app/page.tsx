@@ -102,6 +102,21 @@ export default function Home() {
             />
           </div>
 
+          <div className="space-y-2">
+            <label className="text-sm font-medium">Con texto personalizado de botones</label>
+            <DateRangePicker
+              date={date}
+              onDateChange={setDate}
+              locale={locale}
+              acceptText={locale === "es" ? "Confirmar" : "Confirm"}
+              cancelText={locale === "es" ? "Cerrar" : "Close"}
+              todayColor="bg-green-100 text-green-900 dark:bg-green-900 dark:text-green-100"
+              rangeColor="bg-purple-500 text-white"
+              rangeMiddleColor="bg-purple-100 text-purple-900 dark:bg-purple-900 dark:text-purple-100"
+              normalDayColor="text-foreground"
+            />
+          </div>
+
           {date?.from && (
             <div className="rounded-lg border bg-card p-4">
               <p className="text-xs text-muted-foreground">Fecha seleccionada:</p>

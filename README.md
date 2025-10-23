@@ -128,6 +128,25 @@ function AdvancedExample() {
       rangeColor="bg-blue-500 text-white"
       rangeMiddleColor="bg-blue-100 text-blue-900"
       showPresets={true}
+      acceptText="Confirm"
+      cancelText="Close"
+    />
+  )
+}
+```
+
+### Custom Button Text
+
+```tsx
+function CustomButtonsExample() {
+  return (
+    <DateRangePicker
+      date={date}
+      onDateChange={setDate}
+      locale="es"
+      acceptText="Confirmar"
+      cancelText="Cerrar"
+      rangeColor="bg-purple-500 text-white"
     />
   )
 }
@@ -148,6 +167,8 @@ function AdvancedExample() {
 | `normalDayColor` | `string` | `"text-foreground"` | Normal day color |
 | `presets` | `DateRangePreset[]` | Default presets | Custom preset options |
 | `showPresets` | `boolean` | `true` | Show/hide preset buttons |
+| `acceptText` | `string` | `"Aceptar"/"Accept"` | Custom text for accept button |
+| `cancelText` | `string` | `"Cancelar"/"Cancel"` | Custom text for cancel button |
 
 ### Default Presets
 

@@ -27,6 +27,8 @@ interface DateRangePickerProps {
   normalDayColor?: string
   presets?: DateRangePreset[]
   showPresets?: boolean
+  acceptText?: string
+  cancelText?: string
 }
 
 function CustomDayButton({
@@ -118,6 +120,8 @@ export function DateRangePicker({
   normalDayColor = "text-foreground",
   presets,
   showPresets = true,
+  acceptText,
+  cancelText,
 }: DateRangePickerProps) {
   const [tempDate, setTempDate] = React.useState<DateRange | undefined>(date)
   const [open, setOpen] = React.useState(false)
@@ -161,6 +165,10 @@ export function DateRangePicker({
   }, [locale])
 
   const activePresets = presets || defaultPresets
+
+  // Get button text with fallback to localized defaults
+  const getAcceptText = () => acceptText || (locale === "es" ? "Aceptar" : "Accept")
+  const getCancelText = () => cancelText || (locale === "es" ? "Cancelar" : "Cancel")
 
   React.useEffect(() => {
     const checkMobile = () => {
@@ -313,7 +321,7 @@ export function DateRangePicker({
                   onClick={handleCancel}
                 >
                   <X className="size-3.5" />
-                  {locale === "es" ? "Cancelar" : "Cancel"}
+                  {getCancelText()}
                 </Button>
                 <Button
                   size="sm"
@@ -321,7 +329,7 @@ export function DateRangePicker({
                   onClick={handleAccept}
                 >
                   <Check className="size-3.5" />
-                  {locale === "es" ? "Aceptar" : "Accept"}
+                  {getAcceptText()}
                 </Button>
               </div>
             </div>
